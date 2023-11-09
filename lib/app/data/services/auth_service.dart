@@ -2,14 +2,14 @@ import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 import 'package:ktshka8/app/data/models/tokens/jwt_model.dart';
 import 'package:ktshka8/core/constants.dart';
-import 'package:ktshka8/app/data/services/storage_service.dart';
-import 'package:ktshka8/app/routes/app_pages.dart';
+import '../../routes/app_pages.dart';
+import 'storage_service.dart';
 
 class AuthService extends GetxService {
   StorageService storageService = Get.find();
-  late JWTModel _tokens;
+  late JwtModel _tokens;
   Dio client = Dio(BaseOptions(baseUrl: Constants.baseUrl));
-  bool isLoggedIn = false;
+  bool isLogin = false;
 
   String? get accessToken => _tokens.accessToken;
   Future<bool> refresh() async {
@@ -17,20 +17,20 @@ class AuthService extends GetxService {
     try {
       var res = await client.post(ApiEndpoints.refresh, data: _tokens.toJson());
       print(res);
-      var tokens = JWTModel.fromJson(res.data);
+      var tokens = JwtModel.fromJson(res.data);
       await updateTokens(tokens);
       if (res.statusCode == 200) return true;
     } catch (e) {
       print(e);
     }
-    isLoggedIn = false;
+    isLogin = false;
     return false;
   }
 
   void logout() {
-    isLoggedIn = false;
+    isLogin = false;
     storageService.clear();
-    _tokens = JWTModel(null, '');
+    _tokens = JwtModel(null, '');
     Get.offNamed(Routes.LOGIN);
   }
 
@@ -46,7 +46,7 @@ class AuthService extends GetxService {
         "email": email,
         "password": password,
       });
-      var tokens = JWTModel.fromJson(response.data);
+      var tokens = JwtModel.fromJson(response.data);
       await updateTokens(tokens);
       if (response.statusCode == 200) return true;
     } catch (e) {
@@ -55,21 +55,21 @@ class AuthService extends GetxService {
     return false;
   }
 
-  Future<void> updateTokens(JWTModel tokens) async {
+  Future<void> updateTokens(JwtModel tokens) async {
     _tokens = tokens;
     await storageService.writeRefreshToken(tokens.refreshToken);
   }
 
-  Future<void> tryAutoLogin() async {
+  Future<void> tryLogin() async {
     String refreshToken = storageService.getRefreshToken();
-    var tokens = JWTModel(null, refreshToken);
+    var tokens = JwtModel(null, refreshToken);
     await updateTokens(tokens);
-    if (tokens.refreshToken.isEmpty) {
-      isLoggedIn = false;
+    if (tokens.refreshToken.toString().isEmpty) {
+      isLogin = false;
       return;
     } else {
       bool refreshResult = await refresh();
-      isLoggedIn = refreshResult;
+      isLogin = refreshResult;
     }
   }
 

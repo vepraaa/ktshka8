@@ -22,6 +22,6 @@ void main() async{
 
 Future<void> initServices() async {
   await Get.putAsync(() => StorageService().init());
-  await Get.putAsync(() => ApiService().init());
   await Get.putAsync(() => AuthService().init());
+  await Get.putAsync(() => ApiService().init());
 }

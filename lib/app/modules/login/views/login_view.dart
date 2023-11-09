@@ -106,7 +106,7 @@ class LoginView extends GetView<LoginController> {
                     width: double.infinity,
                     height: 40,
                     child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () => controller.login(),
                         style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10)),

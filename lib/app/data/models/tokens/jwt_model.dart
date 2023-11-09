@@ -4,12 +4,12 @@ part 'jwt_model.freezed.dart';
 part 'jwt_model.g.dart';
 
 @freezed
-class JWTModel with _$JWTModel {
+class JwtModel with _$JwtModel {
 
-  factory JWTModel(
+  factory JwtModel(
     String? accessToken,
-    String refreshToken,
-  ) = _JWTModel;
+    String? refreshToken,
+  ) = _JwtModel;
 
-  factory JWTModel.fromJson(Map<String, dynamic> json) => _$JWTModelFromJson(json);
+  factory JwtModel.fromJson(Map<String, dynamic> json) => _$JwtModelFromJson(json);
 }

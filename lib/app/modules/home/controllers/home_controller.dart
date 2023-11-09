@@ -1,10 +1,22 @@
 import 'package:get/get.dart';
-import 'package:ktshka8/app/routes/app_pages.dart';
+import 'package:ktshka8/app/data/services/api_service.dart';
 
 class HomeController extends GetxController {
-  
-  void toLogin() => Get.toNamed(Routes.LOGIN);
+  ApiService apiService = Get.find();
 
+  RxString getdata = "".obs;
+  RxString get data => getdata;
+
+  @override
+  void onInit() {
+  getUserData();
+  super.onInit();
+  }
+
+  void getUserData() async {
+  var newdata = await apiService.getUser();
+  getdata.value = newdata;
+  }
 
 
 }

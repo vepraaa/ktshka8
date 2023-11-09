@@ -3,18 +3,19 @@ import 'package:ktshka8/app/data/services/auth_service.dart';
 import 'package:ktshka8/app/routes/app_pages.dart';
 
 class SplashController extends GetxController {
-  AuthService authService = Get.find();
+  //TODO: Implement SplashController
 
+  AuthService authService = Get.find();
   @override
   void onReady() async {
-    super.onReady();
-    await authService.tryAutoLogin();
-    if (authService.isLoggedIn) {
-      Get.toNamed(Routes.HOME);
+    await authService.tryLogin();
+    if(authService.isLogin){
+      Get.offNamed(Routes.HOME);
     }
     else {
-      Get.toNamed(Routes.LOGIN);
+      Get.offNamed(Routes.LOGIN);
     }
+    super.onReady();
   }
 
 }

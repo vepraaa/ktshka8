@@ -9,15 +9,15 @@ class StorageService extends GetxService {
 
   String getRefreshToken() => _readData('refresh') ?? "";
 
-  Future<void> writeRefreshToken(String token) => _writeData('refresh', token);
+  Future<void> writeRefreshToken(String? token) => _writeData('refresh', token);
 
-  Future<void> _writeData(String key, String value) => box.put(key, value);
+  Future<void> _writeData(String key, String? value) => box.put(key, value);
 
   String? _readData(String key) => box.get(key);
 
   Future<StorageService> init() async {
     await Hive.initFlutter();
-    box = await Hive.openBox('kt');
+    box = await Hive.openBox('ktshka');
     return this;
   }
 }
