@@ -10,7 +10,7 @@ class LoginView extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       backgroundColor: Color.fromARGB(244, 251, 199, 227),
+       backgroundColor: Color.fromARGB(244, 211, 192, 251),
       body: Padding(
         padding: const EdgeInsets.only(top: 20, left: 563, right: 566),
         child: Column(
@@ -21,7 +21,15 @@ class LoginView extends GetView<LoginController> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Vepra",
+                    "V",
+                    style: TextStyle(
+                      fontSize: 40,
+                        fontWeight: FontWeight.w900,
+                        color: Color.fromARGB(244, 158, 113, 249),
+                    ),
+                  ),
+                  Text(
+                    "epra",
                     style: TextStyle(
                         fontSize: 32,
                         fontWeight: FontWeight.w900,
@@ -50,7 +58,7 @@ class LoginView extends GetView<LoginController> {
               padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16),
-                  color: Color.fromARGB(244, 251, 149, 205)),
+                  color: Color.fromARGB(244, 195, 167, 251)),
               // margin:
               //     const EdgeInsets.only(top: 173, left: 563, right: 566),
               child: Column(
@@ -103,7 +111,7 @@ class LoginView extends GetView<LoginController> {
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10)),
                             backgroundColor:
-                                (Color.fromARGB(244, 249, 61, 164))),
+                                (Color.fromARGB(244, 158, 113, 249))),
                         child: const Text(
                           "Войти",
                           style: TextStyle(
@@ -129,7 +137,7 @@ class LoginView extends GetView<LoginController> {
               child: const Text("Зарегистрируйтесь сейчас",
                   style: TextStyle(
                       decoration: TextDecoration.underline,
-                      color: Color.fromARGB(244, 249, 61, 164))),
+                      color: Color.fromARGB(244, 158, 113, 249))),
             )
           ],
         ),

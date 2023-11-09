@@ -10,7 +10,7 @@ class RegistrationView extends GetView<RegistrationController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     backgroundColor: Color.fromARGB(244, 251, 199, 227),
+     backgroundColor: Color.fromARGB(244, 211, 192, 251),
       body: Padding(
         padding: const EdgeInsets.only(top: 20, left: 563, right: 566),
         child: Column(
@@ -25,7 +25,7 @@ class RegistrationView extends GetView<RegistrationController> {
                     style: TextStyle(
                       fontSize: 40,
                         fontWeight: FontWeight.w900,
-                        color: Color.fromARGB(244, 249, 61, 164),
+                        color: Color.fromARGB(244, 158, 113, 249),
                     ),
                   ),
                   Text(
@@ -58,7 +58,7 @@ class RegistrationView extends GetView<RegistrationController> {
               padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16),
-                  color: const Color.fromARGB(244, 251, 149, 205)),
+                  color: const Color.fromARGB(244, 195, 167, 251)),
               // margin:
               //     const EdgeInsets.only(top: 173, left: 563, right: 566),
               child: Column(
@@ -133,7 +133,7 @@ class RegistrationView extends GetView<RegistrationController> {
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10)),
                             backgroundColor:
-                                (Color.fromARGB(244, 249, 61, 164))),
+                                (Color.fromARGB(244, 158, 113, 249))),
                         child: const Text(
                           "Зарегистрироваться",
                           style: TextStyle(
@@ -159,7 +159,7 @@ class RegistrationView extends GetView<RegistrationController> {
               child: const Text("Войдите в него",
                   style: TextStyle(
                       decoration: TextDecoration.underline,
-                      color: Color.fromARGB(244, 249, 61, 164))),
+                      color: Color.fromARGB(244, 158, 113, 249))),
             )
           ],
         ),

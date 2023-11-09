@@ -25,4 +25,3 @@ Future<void> initServices() async {
   await Get.putAsync(() => ApiService().init());
   await Get.putAsync(() => AuthService().init());
 }
-

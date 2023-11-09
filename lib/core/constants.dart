@@ -1,6 +1,9 @@
-abstract class Constants {
-  static const baseApiUrl = "http://195.54.32.97:8383/api/users/";
+abstract class Constants{
+  static const String baseUrl = 'http://195.54.32.97:8383';
 }
-abstract class ApiEndPoints {
-  static const registration = "register";
+
+abstract class ApiEndpoints {
+  static const registration = 'register';
+  static const login = 'login';
+  static const refresh = 'refresh';
 }

@@ -10,12 +10,12 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(244, 251, 199, 227),
+      backgroundColor: const Color.fromARGB(244, 211, 192, 251),
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(244, 251, 149, 205),
+        backgroundColor: const Color.fromARGB(244, 195, 167, 251),
         title: const Text('Главная страница',
         style: TextStyle(
-          color: Color.fromARGB(244, 249, 61, 164),
+          color: Color.fromARGB(244, 158, 113, 249),
         ),),
         actions: [
           IconButton(
@@ -33,7 +33,7 @@ class HomeView extends GetView<HomeController> {
               style: TextStyle(
                 fontSize: 28,
                 fontWeight: FontWeight.w700,
-                color: Color.fromARGB(244, 249, 61, 164),
+                color: Color.fromARGB(244, 158, 113, 249),
               ),
             ),
           ],

@@ -8,8 +8,8 @@ class SplashController extends GetxController {
   @override
   void onReady() async {
     super.onReady();
-    await authService.tryAuth();
-    if (authService.isAuth) {
+    await authService.tryAutoLogin();
+    if (authService.isLoggedIn) {
       Get.toNamed(Routes.HOME);
     }
     else {
