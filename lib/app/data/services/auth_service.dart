@@ -51,6 +51,7 @@ class AuthService extends GetxService {
       if (response.statusCode == 200) return true;
     } catch (e) {
       print(e);
+      print(_auth);
     }
     return false;
   }

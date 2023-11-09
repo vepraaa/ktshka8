@@ -66,6 +66,7 @@ class LoginView extends GetView<LoginController> {
                 children: [
                   const SizedBox(height: 0),
                   TextField(
+                    controller: controller.mailController,
                     decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide.none,
@@ -84,6 +85,7 @@ class LoginView extends GetView<LoginController> {
                   ),
                   const SizedBox(height: 20),
                   TextField(
+                    controller: controller.passController,
                       obscureText: true,
                       decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(

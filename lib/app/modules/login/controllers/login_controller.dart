@@ -15,9 +15,12 @@ class LoginController extends GetxController {
   login() async {
     bool res =
         await authService.login(mailController.text, passController.text);
+        print(authService);
+        print(mailController.text);
+        print(passController.text);
     if (res) {
       authService.isLogin = true;
-      Get.offNamed(Routes.HOME);
+      Get.offAndToNamed(Routes.HOME);
       print('Login is successfull');
     } else {
       print('Login failed');
