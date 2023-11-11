@@ -128,7 +128,7 @@ class RegistrationView extends GetView<RegistrationController> {
                     width: double.infinity,
                     height: 40,
                     child: ElevatedButton(
-                        onPressed: () => controller.Registration(),
+                        onPressed: () => controller.registration(),
                         style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10)),
