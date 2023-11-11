@@ -8,7 +8,7 @@ class JwtModel with _$JwtModel {
 
   factory JwtModel(
     String? accessToken,
-    String? refreshToken,
+    String refreshToken,
   ) = _JwtModel;
 
   factory JwtModel.fromJson(Map<String, dynamic> json) => _$JwtModelFromJson(json);

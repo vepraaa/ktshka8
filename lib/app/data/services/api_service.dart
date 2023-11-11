@@ -2,14 +2,13 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
-
 import 'package:ktshka8/core/constants.dart';
-import 'auth_service.dart';
-import 'storage_service.dart';
+import 'package:ktshka8/app/data/services/auth_service.dart';
+import 'package:ktshka8/app/data/services/storage_service.dart';
 
 class ApiService extends GetxService {
-  AuthService authService = Get.find();
   StorageService storageService = Get.find();
+  AuthService authService = Get.find();
 
   Dio client = Dio(BaseOptions(
     baseUrl: Constants.baseUrl,

@@ -19,7 +19,7 @@ class LoginController extends GetxController {
         print(mailController.text);
         print(passController.text);
     if (res) {
-      authService.isLogin = true;
+      authService.isLoggedIn = true;
       Get.offAndToNamed(Routes.HOME);
       print('Login is successfull');
     } else {

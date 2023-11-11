@@ -28,7 +28,7 @@ class RegistrationController extends GetxController {
     bool res = await authService.registration(
         mailController.text, passController.text);
     if (res) {
-      authService.isLogin = true;
+      authService.isLoggedIn = true;
       Get.offNamed(Routes.HOME);
       showSnack('Registration is successfull', isError: false);
     } else {

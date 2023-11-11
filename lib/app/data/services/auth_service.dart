@@ -1,15 +1,15 @@
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
-import 'package:ktshka8/app/data/models/tokens/jwt_model.dart';
 import 'package:ktshka8/core/constants.dart';
-import '../../routes/app_pages.dart';
-import 'storage_service.dart';
+import 'package:ktshka8/app/data/models/tokens/jwt_model.dart';
+import 'package:ktshka8/app/data/services/storage_service.dart';
+import 'package:ktshka8/app/routes/app_pages.dart';
 
 class AuthService extends GetxService {
   StorageService storageService = Get.find();
   late JwtModel _tokens;
   Dio client = Dio(BaseOptions(baseUrl: Constants.baseUrl));
-  bool isLogin = false;
+  bool isLoggedIn = false;
 
   String? get accessToken => _tokens.accessToken;
   Future<bool> refresh() async {
@@ -23,12 +23,12 @@ class AuthService extends GetxService {
     } catch (e) {
       print(e);
     }
-    isLogin = false;
+    isLoggedIn = false;
     return false;
   }
 
   void logout() {
-    isLogin = false;
+    isLoggedIn = false;
     storageService.clear();
     _tokens = JwtModel(null, '');
     Get.offNamed(Routes.LOGIN);
@@ -51,7 +51,6 @@ class AuthService extends GetxService {
       if (response.statusCode == 200) return true;
     } catch (e) {
       print(e);
-      print(_auth);
     }
     return false;
   }
@@ -61,20 +60,21 @@ class AuthService extends GetxService {
     await storageService.writeRefreshToken(tokens.refreshToken);
   }
 
-  Future<void> tryLogin() async {
+  Future<void> tryAutoLogin() async {
     String refreshToken = storageService.getRefreshToken();
     var tokens = JwtModel(null, refreshToken);
     await updateTokens(tokens);
-    if (tokens.refreshToken.toString().isEmpty) {
-      isLogin = false;
+    if (tokens.refreshToken.isEmpty) {
+      isLoggedIn = false;
       return;
     } else {
       bool refreshResult = await refresh();
-      isLogin = refreshResult;
+      isLoggedIn = refreshResult;
     }
   }
 
   Future<AuthService> init() async {
+    await tryAutoLogin();
     return this;
   }
 }

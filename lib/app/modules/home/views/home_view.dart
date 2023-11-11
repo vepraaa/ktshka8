@@ -13,10 +13,12 @@ class HomeView extends GetView<HomeController> {
       backgroundColor: const Color.fromARGB(244, 211, 192, 251),
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(244, 195, 167, 251),
-        title: const Text('Главная страница',
-        style: TextStyle(
-          color: Color.fromARGB(244, 158, 113, 249),
-        ),),
+        title: const Text(
+          'Главная страница',
+          style: TextStyle(
+            color: Color.fromARGB(244, 158, 113, 249),
+          ),
+        ),
         actions: [
           IconButton(
               onPressed: () => Get.toNamed(Routes.LOGIN),
@@ -24,19 +26,16 @@ class HomeView extends GetView<HomeController> {
         ],
         centerTitle: true,
       ),
-      body: const Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "Meow",
-              style: TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.w700,
-                color: Color.fromARGB(244, 158, 113, 249),
-              ),
+      body: Center(
+        child: Obx(
+          () => Text(
+            controller.welcometext.value,
+            style: const TextStyle(
+              fontSize: 28,
+              fontWeight: FontWeight.w700,
+              color: Color.fromARGB(244, 158, 113, 249),
             ),
-          ],
+          ),
         ),
       ),
     );
